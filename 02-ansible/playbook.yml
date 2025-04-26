@@ -1,0 +1,8 @@
+---
+- name: Configure docker and deploy application
+  hosts: webservers
+  become: yes
+  roles: 
+    - role: docker
+    - role: app_deploy
+    - role: nginx

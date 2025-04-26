@@ -1,0 +1,24 @@
+---
+- name: Login to private Docker registry
+  docker_login:
+    registry: "{{ docker_registry_url }}"
+    username: "{{ docker_registry_username }}"
+    password: "{{ docker_registry_password }}"
+    # email: "{{ docker_registry_email }}"
+
+- name: Pull application image
+  docker_image:
+    name: "{{ docker_image }}"
+    source: pull
+
+- name: Run application containers
+  docker_container:
+    name: "app{{ item }}"
+    image: "{{ docker_image }}"
+    state: started
+    restart_policy: unless-stopped
+    published_ports:
+      - "808{{ item }}:8000"
+    env: 
+      AUTHOR: "{{ app_author }}"
+  loop: [1, 2, 3]

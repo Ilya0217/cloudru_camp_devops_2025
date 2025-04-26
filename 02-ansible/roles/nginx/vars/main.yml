@@ -1,0 +1,10 @@
+# app_deploy
+docker_registry_url: "https://index.docker.io/v1/"
+docker_registry_username: "ilya0923"
+docker_registry_password: "EQ8-rdp-MCY-sH5"
+# docker_registry_email: "sulimenko.i@freshcredit.ru"
+docker_image: "ilya0923/echo-server-python"
+app_author: "Ilya Sulimenko"
+
+# Для роли nginx
+nginx_port: 80
