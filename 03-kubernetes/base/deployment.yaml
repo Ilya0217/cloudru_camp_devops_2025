@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-app
+  namespace: echo-app
+  labels: 
+    app: echo-app
+spec: 
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: echo-app
+  template:
+    metadata:
+      labels: 
+        app: echo-app
+    spec: 
+      containers:
+      - name: echo-app
+        image: ilya0923/echo-server-python:latest
+        ports:
+        - containerPort: 8000
+        env: 
+        - name: AUTHOR
+          value: "Ilya Sulimenko"
+          # readiness проба
+        readinessProbe:
+          httpGet: 
+            path: /
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          # liveness проба
+        livenessProbe:
+          httpGet: 
+            path: /
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 20
+      imagePullSecrets:
+      - name: docker-registry-secret
