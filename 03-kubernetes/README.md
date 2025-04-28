@@ -1,4 +1,10 @@
 # Ответ к заданию /03-kubernetes
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Kubernetes_%28container_engine%29.png" 
+       width="200" title="Kubernetes">
+</p>
+
+# Третье тестовое задание для Cloud.ru Camp 2025 - DEVOPS
 
 ## Коды манифестов находятся в следующих файлах:
 - /base/deployment.yaml

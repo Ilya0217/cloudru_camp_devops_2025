@@ -1,5 +1,10 @@
 # Ответ к заданию /02-ansible
-![alt text](https://ih1.redbubble.net/image.4689746859.7973/st,small,507x507-pad,300x300,f8f8f8.jpg)
+
+<p align="center">
+  <img src="https://ih1.redbubble.net/image.4689746859.7973/st,small,507x507-pad,300x300,f8f8f8.jpg" 
+       width="200" title="Kubernetes">
+</p>
+
 # Второе тестовое задание для Cloud.ru Camp 2025 - DEVOPS
 
 ## Обоснование выбора алгоритма балансировки
