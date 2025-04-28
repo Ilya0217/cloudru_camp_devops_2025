@@ -7,6 +7,8 @@
 
 # Второе тестовое задание для Cloud.ru Camp 2025 - DEVOPS
 
+## Исходный код Ansible находится в playbook.yaml, inventory.ini, а также в папке /roles
+
 ## Обоснование выбора алгоритма балансировки
 
 Я выбрал алгоритм балансировки **Least Connections**.
