@@ -1,4 +1,4 @@
-# /01-application
+# Ответ к заданию /01-application
 # Первое тестовое задание для Cloud.ru Camp 2025 - DEVOPS
 
 ## Пуш образа в регистри

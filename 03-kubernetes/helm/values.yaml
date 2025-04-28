@@ -1,20 +1,35 @@
+namespace: echo-app
+appName: echo-app
 replicaCount: 3
 
-image: 
+image:
   repository: ilya0923/echo-server-python
   tag: latest
-  pullPolicy: IfNotPresent
-  pullSecrets: docker-registry-secret
+  pullSecret: docker-registry-secret
+  pullSecretData: "eyJhdXRocyI6eyJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOnsidXNlcm5hbWUiOiJpbHlhMDkyMyIsInBhc3N3b3JkIjoiRVE4LXJkcC1NQ1ktc0g1IiwiYXV0aCI6ImFXeDVZVEE1TWpNNlJWRTRMWEprY0MxTlExa3RjMGcxIn19fQ=="
 
-env: 
+env:
   AUTHOR: "Ilya Sulimenko"
 
-service: 
+service:
   type: ClusterIP
   port: 80
+  targetPort: 8000
 
 ingress:
-  enabled: false
+  enabled: true
   host: echo-app.cloud.ru
-  annotations: 
+  annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+
+probes:
+  readiness:
+    path: /
+    port: 8000
+    initialDelaySeconds: 5
+    periodSeconds: 10
+  liveness:
+    path: /
+    port: 8000
+    initialDelaySeconds: 15
+    periodSeconds: 20
